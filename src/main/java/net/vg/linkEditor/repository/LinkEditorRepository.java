@@ -22,6 +22,7 @@ public interface LinkEditorRepository extends JpaRepository<Link, Long> {
     /**
      * Find all the links in the database which have attributes 'active' and 'isAvailableChrome' set on true.
      * @param isActive
+     * @param isAvailableChrome
      * @return List<Link>
      */
     List<Link> findByIsActiveAndIsAvailableChrome (boolean isActive, boolean isAvailableChrome);
@@ -29,6 +30,7 @@ public interface LinkEditorRepository extends JpaRepository<Link, Long> {
     /**
      * Find all the links in the database which have attributes 'active' and 'isAvailableFirefox' set on true.
      * @param isActive
+     * @param isAvailableFirefox
      * @return List<Link>
      */
     List<Link> findByIsActiveAndIsAvailableFirefox (boolean isActive, boolean isAvailableFirefox);

@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  * @author Vladimir Grulich
- * Controller layer containing CRUD operations
+ * Controller layer containing CRUD operations.
  */
 @RestController
 @RequestMapping("/api/linkEditor")
