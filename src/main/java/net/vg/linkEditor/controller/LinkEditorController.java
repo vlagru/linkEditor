@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @author Vladimir Grulich
+ * Controller layer containing CRUD operations
+ */
 @RestController
 @RequestMapping("/api/linkEditor")
 @Slf4j
@@ -22,6 +26,10 @@ public class LinkEditorController {
     @Autowired
     LinkEditorServiceImpl linkEditorServiceImpl;
 
+    /**
+     * Get all links from the database.
+     * @return List<Link>
+     */
     @GetMapping("/getAllLinks")
     public ResponseEntity<List<Link>> getAllLinks() {
         return ResponseEntity.ok(
@@ -29,6 +37,10 @@ public class LinkEditorController {
         );
     }
 
+    /**
+     * Get all links with the attribute 'isAvailableChrome' set on true.
+     * @return List<Link>
+     */
     @GetMapping("/getAllChromeAvailable")
     public ResponseEntity<List<Link>> getAllChromeAvailable() {
         return ResponseEntity.ok(
@@ -36,6 +48,10 @@ public class LinkEditorController {
         );
     }
 
+    /**
+     * Get all links with the attribute 'isAvailableFirefox' set on true.
+     * @return List<Link>
+     */
     @GetMapping("/getAllFirefoxAvailable")
     public ResponseEntity<List<Link>> getAllFirefoxAvailable() {
         return ResponseEntity.ok(
@@ -43,6 +59,10 @@ public class LinkEditorController {
         );
     }
 
+    /**
+     * Get all links with the attribute 'active' set on true.
+     * @return List<Link>
+     */
     @GetMapping("/getAllActive")
     public ResponseEntity<List<Link>> getAllActive() {
         return ResponseEntity.ok(
@@ -50,6 +70,10 @@ public class LinkEditorController {
         );
     }
 
+    /**
+     * Create a link where there is a multipart file - picture - and JSON body in one object.
+     * @return void
+     */
     @PostMapping(value = "/createLink")
     public void createLink(@Valid @ModelAttribute LinkDto linkDto, BindingResult result) {
 
@@ -61,12 +85,20 @@ public class LinkEditorController {
 
     }
 
+    /**
+     * Update a link on the basis of its id.
+     * @return void
+     */
     @PutMapping("/{id}")
     public void updateLink(@PathVariable long id, @Valid @ModelAttribute LinkDto linkDto, BindingResult result) {
 
         linkEditorServiceImpl.updateLink(linkDto, id);
     }
 
+    /**
+     * Delete a link on the basis of its id.
+     * @return HttpStatus
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteLink(@PathVariable long id){
 
