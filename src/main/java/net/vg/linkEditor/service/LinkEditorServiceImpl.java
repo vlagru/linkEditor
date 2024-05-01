@@ -30,7 +30,6 @@ public class LinkEditorServiceImpl implements LinkEditorService {
     @Autowired
     LinkEditorRepository linkEditorRepository;
 
-    //TODO: Test the method for the scenario when a multipart file and a JSON body are sent in one object.
     @Override
     public void createLink(LinkDto linkDto) {
 
@@ -73,9 +72,8 @@ public class LinkEditorServiceImpl implements LinkEditorService {
         return linkEditorRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
-    //TODO: Test the method for the scenario when a multipart file and a JSON body are sent in one object.
     @Override
-    public void updateLink(LinkDto linkDto, Long id) {
+    public void updateLink(LinkDto linkDto, long id) {
 
         var linkToBeUpdated = linkEditorRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
                 "Link with id: " + id + " does not exist."

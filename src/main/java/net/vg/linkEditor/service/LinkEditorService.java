@@ -11,7 +11,7 @@ public interface LinkEditorService {
 
     List<Link> getAllLinks();
 
-    void updateLink(LinkDto linkDto, Long id);
+    void updateLink(LinkDto linkDto, long id);
 
     void deleteLink(long id);
 
