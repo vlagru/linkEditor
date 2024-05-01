@@ -71,7 +71,9 @@ public class LinkEditorController {
     }
 
     /**
-     * Create a link where there is a multipart file - picture - and JSON body in one object.
+     * Create a link where there is a multipart file - picture -
+     * @param linkDto
+     * @param result
      * @return void
      */
     @PostMapping(value = "/createLink")
@@ -87,6 +89,9 @@ public class LinkEditorController {
 
     /**
      * Update a link on the basis of its id.
+     * @param id
+     * @param linkDto
+     * @param result
      * @return void
      */
     @PutMapping("/{id}")
@@ -97,6 +102,7 @@ public class LinkEditorController {
 
     /**
      * Delete a link on the basis of its id.
+     * @param id
      * @return HttpStatus
      */
     @DeleteMapping("/{id}")
